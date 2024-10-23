@@ -132,9 +132,8 @@
             <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
               <h2>Detalles</h2>
               <p>
-                En el DAX que desarrollé, comienzo definiendo una variable llamada MaxRentabilidad, donde utilizo la función MAXX para calcular la rentabilidad de cada producto. Para ello, aplico ALL('Ventas'[Producto]), lo que me permite evaluar todos los productos sin ningún filtro aplicado. Calculo la rentabilidad restando el costo total de los productos vendidos del monto total de ventas; es decir, sumo el monto total vendido con SUM('Ventas'[Monto total]) y le resto el costo, que se obtiene multiplicando el precio unitario (SUM('Ventas'[Precio unitario])) por la cantidad de unidades vendidas (SUM('Ventas'[Cantidad de unidades])).
-
-                Una vez que tengo la rentabilidad máxima almacenada en MaxRentabilidad, utilizo CALCULATE para identificar el producto que corresponde a esa rentabilidad. Empleo FIRSTNONBLANK para devolver el nombre del producto asociado a la rentabilidad máxima, buscando en la columna 'Ventas'[Producto] con el filtro de MaxRentabilidad. De esta manera, este DAX me permite identificar el producto que genera la mayor rentabilidad en el conjunto de datos de ventas.              </p>
+                Desarrollé este DAX para identificar el producto más vendido. Primero, uso la función TOPN para obtener el producto con el mayor monto de ventas. Para hacerlo, creo una nueva columna con ADDCOLUMNS, que calcula el total de ventas por producto utilizando CALCULATE(SUM(Ventas[Monto total])). Luego, con TOPN, selecciono el producto con el mayor total de ventas en orden descendente. Finalmente, uso SELECTCOLUMNS para devolver solo el nombre de ese producto.
+              </p>
             </div>
           </div>
 

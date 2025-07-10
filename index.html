@@ -107,7 +107,7 @@
             <div class="row">
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Edad:</strong> <span>25</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Edad:</strong> <span id="edad"></span> &nbsp;años.</li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Provincia:</strong> <span>Buenos Aires, Argentina</span></li>
                 </ul>
               </div>
@@ -283,6 +283,17 @@
               </div>
             </div><!-- End Portfolio Item -->
 
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/app-4.png" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>Dashboard</h4>
+                  <p>Dashboard, Análisis Retail</p>
+                  <a href="assets/img/portfolio/app-4.png" title="Dashboard, Análisis Retail" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="portfolio-details7.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
               <div class="portfolio-content h-100">
@@ -423,6 +434,28 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+<script>
+  // Cambiá esta fecha por tu nacimiento real
+  const fechaNacimiento = new Date('1999-12-23');
+
+  const hoy = new Date();
+  let edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+
+  // Si aún no cumpliste años este año, restá 1
+  const mesActual = hoy.getMonth();
+  const diaActual = hoy.getDate();
+  const mesNacimiento = fechaNacimiento.getMonth();
+  const diaNacimiento = fechaNacimiento.getDate();
+
+  if (mesActual < mesNacimiento || (mesActual === mesNacimiento && diaActual < diaNacimiento)) {
+    edad--;
+  }
+
+  document.getElementById('edad').textContent = edad;
+</script>
+
+
 
 </body>
 
